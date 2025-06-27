@@ -58,9 +58,10 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-t from-blue-700 to-blue-900">
       <h1 className="text-center text-4xl font-bold mb-6 text-white">Weatherly 🌥️</h1>
-      <div className="flex flex-col bg-blue-50 rounded-lg shadow-blue-900 shadow-lg h-96 p-8 w-full max-w-fit">
+      <div className="flex flex-col bg-blue-100 rounded-md shadow-blue-900 shadow-lg p-6 w-full max-w-fit">
+        {!weather && <h2 className="text-lg font-semibold mb-2">Find your weather forecast</h2>}
         <div className="flex items-center">
-          <input className="bg-white border border-gray-400 rounded-md text-sm py-1 px-2" type="text" placeholder="Search city or area" value={city}
+          <input className="bg-white border border-gray-400 rounded-md text-sm py-1 px-2" aria-label="search" type="text" placeholder="Search city or area" value={city}
             onChange={(e) => {
               setCity(e.target.value);
               setError("")
@@ -71,26 +72,39 @@ export default function Home() {
             <button title="Use my location" className="self-start bg-blue-600 rounded-md flex h-7 w-7 items-center justify-center hover:bg-blue-800 hover:cursor-pointer active:scale-95 text-white text-sm" onClick={getCurrentLocationWeather}><FiMapPin /></button>
           </div>
         </div>
-        {error && <p className="text-sm mt-2">{error}</p>}
-        {weather && (
+        {error && <p className="text-xs mt-2">{error}</p>}
+        {weather && weather.forecast && (
           <>
-            <h2 className="font-semibold text-lg mt-4 mb-2">
+            <h2 className="font-semibold text-lg my-2">
               {weather.location.name}, {weather.location.country}
             </h2>
-            <div className="h-2/3 flex flex-col justify-between bg-white rounded-lg shadow-sm shadow-gray-400 p-4 text-sm font-semibold">
+            <div className="h-2/3 flex flex-col justify-between bg-white rounded-md shadow-sm p-4">
               <div className="flex flex-col">
-                <p className="font-bold text-lg">{weather.current.temp_c}°C</p>
+                <p className="text-sm font-semibold">Current weather</p>
+                <div className="flex gap-2 items-center">
+                  <p className="font-bold text-lg">{weather.current.temp_c}°C</p>
+                  <img src={weather.current.condition.icon} alt="weather icon" className="h-10 w-10" />
+                </div>
                 <div className="flex gap-2 items-center">
                   <p className="text-xs">{weather.current.condition.text}</p>
                   <span>|</span>
                   <p className="text-xs">Last updated {weather.current.last_updated.split(" ")[1]}</p>
                 </div>
               </div>
-              <img src={weather.current.condition.icon} alt="weather icon" className="h-16 w-16" />
-              <div className="flex gap-2">
-                <p className="shadow-sm shadow-gray-300 py-1 px-2 rounded-md text-xs">UV: <b>{weather.current.uv}</b></p>
-                <p className="shadow-sm shadow-gray-300 py-1 px-2 rounded-md text-xs">Humidity: <b>{weather.current.humidity}</b></p>
+
+              <div className="flex gap-2 items-center">
+                <p className="text-xs">UV: <b>{weather.current.uv}</b></p>
+                <span>|</span>
+                <p className="text-xs">Humidity: <b>{weather.current.humidity}</b></p>
               </div>
+            </div>
+            <div className="shadow-sm bg-white p-4 rounded-md mt-2 flex flex-col gap-2">
+              <p className="text-xs font-semibold">Tomorrow</p>
+              <div className="flex gap-2 items-center">
+                <p className="font-bold text-sm">{weather.forecast.forecastday[1].day.avgtemp_c}°C</p>
+                <img src={weather.forecast.forecastday[1].day.condition.icon} alt="weather-icon" className="h-5 w-5"></img>
+              </div>
+              <p className="text-xs">{weather.forecast.forecastday[1].day.condition.text}</p>
             </div>
           </>
         )}
