@@ -58,10 +58,10 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-t from-blue-700 to-blue-900">
       <h1 className="text-center text-4xl font-bold mb-6 text-white">Weatherly 🌥️</h1>
-      <div className="flex flex-col bg-blue-100 rounded-md shadow-blue-900 shadow-lg p-6 w-full max-w-fit">
+      <div className="flex flex-col bg-blue-100 rounded-md shadow-md p-6 w-full max-w-fit">
         {!weather && <h2 className="text-lg font-semibold mb-2">Find your weather forecast</h2>}
         <div className="flex items-center">
-          <input className="bg-white border border-gray-400 rounded-md text-sm py-1 px-2" aria-label="search" type="text" placeholder="Search city or area" value={city}
+          <input className="bg-white border border-gray-500 rounded-md text-sm py-1 px-2" aria-label="search" type="text" placeholder="Search city or area" value={city}
             onChange={(e) => {
               setCity(e.target.value);
               setError("")
