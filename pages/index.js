@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-t from-blue-700 to-blue-900">
       <h1 className="text-center text-4xl font-bold mb-6 text-white">Weatherly 🌥️</h1>
-      <div className="flex flex-col bg-blue-100 rounded-md shadow-md p-6 w-full max-w-fit">
+      <div className="flex flex-col bg-blue-200 rounded-md shadow-md p-6 w-full max-w-fit">
         {!weather && <h2 className="text-lg font-semibold mb-2">Find your weather forecast</h2>}
         <div className="flex items-center">
           <input className="bg-white border border-gray-500 rounded-md text-sm py-1 px-2" aria-label="search" type="text" placeholder="Search city or area" value={city}
@@ -67,9 +67,9 @@ export default function Home() {
               setError("")
             }} />
           <div className="flex gap-2 ml-2">
-            <button title="Search" className="bg-blue-600 rounded-md flex h-7 w-7 items-center justify-center hover:bg-blue-800 hover:cursor-pointer active:scale-95 text-white text-sm"
+            <button title="Search" className="bg-blue-700 rounded-md flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-white text-sm"
               onClick={handleSearch}><FiSearch /></button>
-            <button title="Use my location" className="self-start bg-blue-600 rounded-md flex h-7 w-7 items-center justify-center hover:bg-blue-800 hover:cursor-pointer active:scale-95 text-white text-sm" onClick={getCurrentLocationWeather}><FiMapPin /></button>
+            <button title="Use my location" className="self-start bg-blue-700 rounded-md flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-white text-sm" onClick={getCurrentLocationWeather}><FiMapPin /></button>
           </div>
         </div>
         {error && <p className="text-xs mt-2">{error}</p>}
@@ -78,24 +78,21 @@ export default function Home() {
             <h2 className="font-semibold text-lg my-2">
               {weather.location.name}, {weather.location.country}
             </h2>
-            <div className="h-2/3 flex flex-col justify-between bg-white rounded-md shadow-sm p-4">
-              <div className="flex flex-col">
-                <p className="text-sm font-semibold">Current weather</p>
-                <div className="flex gap-2 items-center">
-                  <p className="font-bold text-lg">{weather.current.temp_c}°C</p>
-                  <img src={weather.current.condition.icon} alt="weather icon" className="h-10 w-10" />
-                </div>
-                <div className="flex gap-2 items-center">
-                  <p className="text-xs">{weather.current.condition.text}</p>
-                  <span>|</span>
-                  <p className="text-xs">Last updated {weather.current.last_updated.split(" ")[1]}</p>
-                </div>
-              </div>
-
+            <div className="h-2/3 flex flex-col gap-2 bg-white rounded-md shadow-sm p-4">
+              <p className="text-sm font-semibold">Current weather</p>
               <div className="flex gap-2 items-center">
-                <p className="text-xs">UV: <b>{weather.current.uv}</b></p>
-                <span>|</span>
-                <p className="text-xs">Humidity: <b>{weather.current.humidity}</b></p>
+                <p className="font-bold text-lg">{weather.current.temp_c}°C</p>
+                <img src={weather.current.condition.icon} alt="weather icon" className="h-10 w-10" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-2 items-center">
+                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">{weather.current.condition.text}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">Last updated {weather.current.last_updated.split(" ")[1]}</p>
+                </div>
+                <div className="flex gap-2 items-center">
+                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">UV: <b>{weather.current.uv}</b></p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">Humidity: <b>{weather.current.humidity}</b></p>
+                </div>
               </div>
             </div>
             <div className="shadow-sm bg-white p-4 rounded-md mt-2 flex flex-col gap-2">
@@ -104,7 +101,7 @@ export default function Home() {
                 <p className="font-bold text-sm">{weather.forecast.forecastday[1].day.avgtemp_c}°C</p>
                 <img src={weather.forecast.forecastday[1].day.condition.icon} alt="weather-icon" className="h-5 w-5"></img>
               </div>
-              <p className="text-xs">{weather.forecast.forecastday[1].day.condition.text}</p>
+              <p className="bg-blue-100 px-2 py-1 rounded-sm self-start text-xs">{weather.forecast.forecastday[1].day.condition.text}</p>
             </div>
           </>
         )}
