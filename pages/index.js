@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getWeather } from "@/utils/weatherApi";
-import { FiMapPin, FiSearch } from "react-icons/fi";
+import { FiMapPin, FiSearch, FiClock } from "react-icons/fi";
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -61,10 +61,12 @@ export default function Home() {
     weekday = date.toLocaleDateString("en-US", { weekday: "long" });
   }
 
+  
+
   return (
-    <div className="min-h-screen flex items-center justify-center flex-col bg-blue-900">
+    <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-b from-blue-900 to-blue-700">
       <h1 className="text-3xl font-bold mb-4 text-white">Weatherly 🌥️</h1>
-      <div className="flex flex-col bg-slate-200 rounded-md shadow-md shadow-blue-950 p-6 w-full max-w-fit">
+      <div className="flex flex-col bg-slate-200 rounded-md shadow-md shadow-blue-900 p-6 w-full max-w-fit">
         {!weather && <h2 className="text-lg font-semibold mb-2">Find your weather forecast</h2>}
         <div className="flex items-center">
           <input className="bg-white border border-slate-400 rounded-md text-sm py-1 px-2" aria-label="search" type="text" placeholder="Search city or area" value={city}
@@ -92,11 +94,11 @@ export default function Home() {
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2 items-center">
                   <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">{weather.current.condition.text}</p>
-                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">Last updated {weather.current.last_updated.split(" ")[1]}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs flex items-center gap-1" title="Last updated"><FiClock />{weather.current.last_updated.split(" ")[1]}</p>
                 </div>
                 <div className="flex gap-2 items-center">
-                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">UV: <b>{weather.current.uv}</b></p>
-                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">Humidity: <b>{weather.current.humidity}</b></p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">UV: {weather.current.uv}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">Humidity: {weather.current.humidity}</p>
                 </div>
               </div>
             </div>
