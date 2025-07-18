@@ -66,18 +66,18 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-b from-blue-900 to-blue-700">
       <h1 className="text-3xl font-bold mb-4 text-white">Weatherly 🌥️</h1>
-      <div className="flex flex-col bg-slate-200 rounded-md shadow-md shadow-blue-900 p-6 w-full max-w-fit">
+      <div className="flex flex-col bg-slate-200 rounded-sm shadow-sm shadow-blue-900 p-6 w-full max-w-fit hover:">
         {!weather && <h2 className="text-lg font-semibold mb-2">Find your weather forecast</h2>}
         <div className="flex items-center">
-          <input className="bg-white border border-slate-400 rounded-md text-sm py-1 px-2" aria-label="search" type="text" placeholder="Search city or area" value={city}
+          <input className="bg-white border border-slate-400 rounded-sm text-sm py-1 px-2 focus:border-slate-800 focus:outline-0" aria-label="search" type="text" placeholder="Search city or area" value={city}
             onChange={(e) => {
               setCity(e.target.value);
               setError("")
             }} />
           <div className="flex gap-2 ml-2">
-            <button title="Search" className="bg-blue-700 text-white rounded-md flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm"
+            <button title="Search" className="bg-blue-700 text-white rounded-2xl flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm"
               onClick={handleSearch}><FiSearch /></button>
-            <button title="Use my location" className="self-start bg-blue-700 text-white rounded-md flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm" onClick={getCurrentLocationWeather}><FiMapPin /></button>
+            <button title="Use my location" className="self-start bg-blue-700 text-white rounded-2xl flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm" onClick={getCurrentLocationWeather}><FiMapPin /></button>
           </div>
         </div>
         {error && <p className="text-xs mt-2">{error}</p>}
