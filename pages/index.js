@@ -91,7 +91,7 @@ export default function Home() {
         {error && <p className="text-xs mt-2">{error}</p>}
         {weather && weather.forecast && (
           <>
-            <h2 className="text-lg my-2 text-white">
+            <h2 className="text-lg mt-5 mb-2 text-white">
               {weather.location.name}, {weather.location.country}
             </h2>
             <div className="h-2/3 flex flex-col gap-4 bg-white rounded-md shadow-sm shadow-slate-400 p-4">
