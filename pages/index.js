@@ -61,29 +61,37 @@ export default function Home() {
     weekday = date.toLocaleDateString("en-US", { weekday: "long" });
   }
 
-  
+
 
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-b from-slate-800 to-blue-700">
-      <h1 className="hidden sm:block text-3xl font-semibold mb-7 text-white">Welcome to Weatherly</h1>
-      <div className="flex flex-col bg-white/30 rounded-lg border border-white/30 backdrop-blur-xl shadow-2xl p-6 w-full max-w-fit">
-        {!weather && <h2 className="text-lg font-semibold mb-2 text-white">Find your weather forecast</h2>}
+      <h1 className="hidden sm:block text-3xl font-semibold mb-6 text-white">Welcome to Weatherly</h1>
+      <div className="w-full min-h-screen mt-5 sm:mt-0 sm:min-h-0 sm:w-[350px] sm:w- flex flex-col sm:bg-white/30 sm:rounded-lg sm:border sm:border-white/30 sm:backdrop-blur-xl sm:shadow-2xl p-6">
+        {!weather && <h2 className="text-lg mb-2 text-white">Find your weather forecast</h2>}
         <div className="flex items-center">
-          <input className="bg-white border border-slate-400 rounded-sm text-sm py-1 px-2 focus:border-slate-800 focus:outline-0" aria-label="search" type="text" placeholder="Search city or area" value={city}
+          <input className="w-full bg-white border border-slate-400 rounded-sm text-sm py-1 px-2 focus:border-slate-800 focus:outline-0" aria-label="search" type="text" placeholder="Search city or area"
+            value={city}
             onChange={(e) => {
               setCity(e.target.value);
               setError("")
             }} />
           <div className="flex gap-2 ml-2">
-            <button title="Search" className="bg-blue-700 text-white rounded-2xl flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm"
-              onClick={handleSearch}><FiSearch /></button>
-            <button title="Use my location" className="self-start bg-blue-700 text-white rounded-2xl flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm" onClick={getCurrentLocationWeather}><FiMapPin /></button>
+            <button title="Search"
+              className="bg-blue-700 text-white rounded-2xl flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm"
+              onClick={handleSearch}>
+              <FiSearch />
+            </button>
+            <button title="Use my location"
+              className="self-start bg-blue-700 text-white rounded-2xl flex h-7 w-7 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm"
+              onClick={getCurrentLocationWeather}>
+              <FiMapPin />
+            </button>
           </div>
         </div>
         {error && <p className="text-xs mt-2">{error}</p>}
         {weather && weather.forecast && (
           <>
-            <h2 className="font-semibold text-lg my-2 text-white">
+            <h2 className="text-lg my-2 text-white">
               {weather.location.name}, {weather.location.country}
             </h2>
             <div className="h-2/3 flex flex-col gap-4 bg-white rounded-md shadow-sm shadow-slate-400 p-4">
