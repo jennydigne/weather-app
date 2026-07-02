@@ -65,7 +65,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-b from-blue-900 to-blue-700">
-      <h1 className="text-3xl font-bold mb-4 text-white">Weatherly 🌥️</h1>
+      <h1 className="hidden sm:block text-3xl font-bold mb-4 text-white">Weatherly 🌥️</h1>
       <div className="flex flex-col bg-slate-200 rounded-sm shadow-sm shadow-blue-900 p-6 w-full max-w-fit hover:">
         {!weather && <h2 className="text-lg font-semibold mb-2">Find your weather forecast</h2>}
         <div className="flex items-center">
