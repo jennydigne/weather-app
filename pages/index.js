@@ -103,12 +103,12 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2 items-center">
-                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">{weather.current.condition.text}</p>
-                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs flex items-center gap-1" title="Last updated"><FiClock />{weather.current.last_updated.split(" ")[1]}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">{weather.current.condition.text}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs flex items-center gap-1" title="Last updated"><FiClock />{weather.current.last_updated.split(" ")[1]}</p>
                 </div>
                 <div className="flex gap-2 items-center">
-                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">UV: {weather.current.uv}</p>
-                  <p className="bg-blue-100 px-2 py-1 rounded-sm text-xs">Humidity: {weather.current.humidity}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">UV: {weather.current.uv}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">Humidity: {weather.current.humidity}</p>
                 </div>
               </div>
             </div>
