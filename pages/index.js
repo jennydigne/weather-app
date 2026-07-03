@@ -61,14 +61,12 @@ export default function Home() {
     weekday = date.toLocaleDateString("en-US", { weekday: "long" });
   }
 
-
-
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-b from-slate-800 to-blue-700">
       <div className="w-full min-h-screen mt-12 sm:mt-0 sm:min-h-0 sm:w-[350px] sm:w- flex flex-col sm:bg-white/30 sm:rounded-lg sm:border sm:border-white/30 sm:backdrop-blur-xl sm:shadow-2xl p-6">
         {!weather && <h2 className="text-xl mb-6 text-white">Find Your Weather Forecast</h2>}
         <div className="flex items-center">
-          <input className="w-full bg-white shadow-md rounded-md py-1 px-2 focus:outline-0"
+          <input className="w-full bg-white shadow-sm rounded-md py-1 px-2 focus:outline-0"
             aria-label="search"
             type="text"
             placeholder="Search city or area"
@@ -98,8 +96,8 @@ export default function Home() {
             </h2>
             <div className="h-2/3 flex flex-col gap-4 bg-white/50 border border-white/20 rounded-md shadow-sm p-4">
               <div className="flex gap-2 items-center">
-                <p className="font-bold text-lg">{weather.current.temp_c}°C</p>
-                <img src={weather.current.condition.icon} alt="weather icon" className="h-10 w-10" />
+                <p className="font-bold text-xl">{weather.current.temp_c}°C</p>
+                <img src={weather.current.condition.icon} alt="weather icon" className="h-11 w-11" />
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2 items-center">
@@ -114,17 +112,17 @@ export default function Home() {
             </div>
             <div className="flex gap-3 mt-3 w-full">
               <div className="flex flex-col gap-2 bg-white/50 border border-white/20 rounded-md p-4 shadow-sm w-1/2">
-                <p className="text-xs font-semibold">Tomorrow</p>
+                <p className="text-sm font-semibold">Tomorrow</p>
                 <div className="flex gap-2 items-center">
-                  <p className="font-bold text-sm">{weather.forecast.forecastday[1].day.avgtemp_c}°C</p>
-                  <img src={weather.forecast.forecastday[1].day.condition.icon} alt="weather-icon" className="h-5 w-5"></img>
+                  <p className="font-bold">{weather.forecast.forecastday[1].day.avgtemp_c}°C</p>
+                  <img src={weather.forecast.forecastday[1].day.condition.icon} alt="weather-icon" className="h-6 w-6"></img>
                 </div>
               </div>
               <div className="flex flex-col gap-2 bg-white/50 border border-white/20 rounded-md p-4 shadow-sm w-1/2">
-                <p className="text-xs font-semibold">{weekday}</p>
+                <p className="text-sm font-semibold">{weekday}</p>
                 <div className="flex gap-2 items-center">
-                  <p className="font-bold text-sm">{weather.forecast.forecastday[2].day.avgtemp_c}°C</p>
-                  <img src={weather.forecast.forecastday[2].day.condition.icon} alt="weather-icon" className="h-5 w-5"></img>
+                  <p className="font-bold">{weather.forecast.forecastday[2].day.avgtemp_c}°C</p>
+                  <img src={weather.forecast.forecastday[2].day.condition.icon} alt="weather-icon" className="h-6 w-6"></img>
                 </div>
               </div>
             </div>
