@@ -108,11 +108,11 @@ export default function Home() {
                 </div>
                 <div className="flex gap-2 items-center">
                   <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">UV: {weather.current.uv}</p>
-                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">Humidity: {weather.current.humidity}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs shadow-sm">Humidity: {weather.current.humidity}</p>
                 </div>
               </div>
             </div>
-            <div className="flex gap-2 mt-2 w-full">
+            <div className="flex gap-3 mt-3 w-full">
               <div className="flex flex-col gap-2 bg-white/50 border border-white/20 rounded-md p-4 shadow-sm w-1/2">
                 <p className="text-xs font-semibold">Tomorrow</p>
                 <div className="flex gap-2 items-center">
