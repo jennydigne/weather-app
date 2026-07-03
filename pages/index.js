@@ -68,7 +68,10 @@ export default function Home() {
       <div className="w-full min-h-screen mt-5 sm:mt-0 sm:min-h-0 sm:w-[350px] sm:w- flex flex-col sm:bg-white/30 sm:rounded-lg sm:border sm:border-white/30 sm:backdrop-blur-xl sm:shadow-2xl p-6">
         {!weather && <h2 className="text-xl mb-6 text-white">Find Your Weather Forecast</h2>}
         <div className="flex items-center">
-          <input className="w-full bg-white border border-slate-400 rounded-sm py-1 px-2 focus:border-slate-800 focus:outline-0" aria-label="search" type="text" placeholder="Search city or area"
+          <input className="w-full bg-white shadow-md rounded-md py-1 px-2 focus:outline-0"
+            aria-label="search"
+            type="text"
+            placeholder="Search city or area"
             value={city}
             onChange={(e) => {
               setCity(e.target.value);
@@ -76,12 +79,12 @@ export default function Home() {
             }} />
           <div className="flex gap-2 ml-2">
             <button title="Search"
-              className="bg-blue-700 text-white rounded-2xl flex h-8 w-8 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm"
+              className="bg-white text-slate-900 hover:bg-white/90 shadow-md rounded-2xl flex h-8 w-8 items-center justify-center hover:cursor-pointer active:scale-95 text-sm"
               onClick={handleSearch}>
               <FiSearch />
             </button>
             <button title="Use my location"
-              className="self-start bg-blue-700 text-white rounded-2xl flex h-8 w-8 items-center justify-center hover:bg-blue-900 hover:cursor-pointer active:scale-95 text-sm"
+              className="self-start bg-white text-slate-900 hover:bg-white/90 shadow-md rounded-2xl flex h-8 w-8 items-center justify-center hover:cursor-pointer active:scale-95 text-sm"
               onClick={getCurrentLocationWeather}>
               <FiMapPin />
             </button>
