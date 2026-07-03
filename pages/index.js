@@ -65,9 +65,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gradient-to-b from-slate-800 to-blue-700">
-      <h1 className="hidden sm:block text-2xl font-semibold mb-6 text-white">Find Your Weather Forecast</h1>
       <div className="w-full min-h-screen mt-5 sm:mt-0 sm:min-h-0 sm:w-[350px] sm:w- flex flex-col sm:bg-white/30 sm:rounded-lg sm:border sm:border-white/30 sm:backdrop-blur-xl sm:shadow-2xl p-6">
-        {!weather && <h2 className="sm:hidden text-center text-xl mb-6 text-white">Find Your Weather Forecast</h2>}
+        {!weather && <h2 className="text-xl mb-6 text-white">Find Your Weather Forecast</h2>}
         <div className="flex items-center">
           <input className="w-full bg-white border border-slate-400 rounded-sm py-1 px-2 focus:border-slate-800 focus:outline-0" aria-label="search" type="text" placeholder="Search city or area"
             value={city}
