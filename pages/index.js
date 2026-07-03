@@ -96,7 +96,7 @@ export default function Home() {
             <h2 className="text-lg mt-5 mb-2 text-white">
               {weather.location.name}, {weather.location.country}
             </h2>
-            <div className="h-2/3 flex flex-col gap-4 bg-white rounded-md shadow-sm shadow-slate-400 p-4">
+            <div className="h-2/3 flex flex-col gap-4 bg-white/50 border border-white/20 rounded-md shadow-sm p-4">
               <div className="flex gap-2 items-center">
                 <p className="font-bold text-lg">{weather.current.temp_c}°C</p>
                 <img src={weather.current.condition.icon} alt="weather icon" className="h-10 w-10" />
@@ -113,14 +113,14 @@ export default function Home() {
               </div>
             </div>
             <div className="flex gap-2 mt-2 w-full">
-              <div className="flex flex-col gap-2 bg-white rounded-md p-4 shadow-sm shadow-slate-400 w-1/2">
+              <div className="flex flex-col gap-2 bg-white/50 border border-white/20 rounded-md p-4 shadow-sm w-1/2">
                 <p className="text-xs font-semibold">Tomorrow</p>
                 <div className="flex gap-2 items-center">
                   <p className="font-bold text-sm">{weather.forecast.forecastday[1].day.avgtemp_c}°C</p>
                   <img src={weather.forecast.forecastday[1].day.condition.icon} alt="weather-icon" className="h-5 w-5"></img>
                 </div>
               </div>
-              <div className="flex flex-col gap-2 bg-white rounded-md p-4 shadow-sm shadow-slate-400 w-1/2">
+              <div className="flex flex-col gap-2 bg-white/50 border border-white/20 rounded-md p-4 shadow-sm w-1/2">
                 <p className="text-xs font-semibold">{weekday}</p>
                 <div className="flex gap-2 items-center">
                   <p className="font-bold text-sm">{weather.forecast.forecastday[2].day.avgtemp_c}°C</p>
