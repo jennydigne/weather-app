@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getWeather } from "@/utils/weatherApi";
-import { FiMapPin, FiSearch, FiClock } from "react-icons/fi";
+import { FiMapPin, FiSearch } from "react-icons/fi";
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -94,19 +94,16 @@ export default function Home() {
             <h2 className="text-lg mt-5 mb-2 text-white">
               {weather.location.name}, {weather.location.country}
             </h2>
-            <div className="h-2/3 flex flex-col gap-4 bg-white/50 border border-white/20 rounded-md shadow-sm p-4">
+            <div className="h-2/3 flex flex-col bg-white/50 border border-white/20 rounded-md shadow-sm p-4">
               <div className="flex gap-2 items-center">
                 <p className="font-bold text-xl">{weather.current.temp_c}°C</p>
                 <img src={weather.current.condition.icon} alt="weather icon" className="h-11 w-11 mb-2" />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-4">
+                <p>{weather.current.condition.text}</p>
                 <div className="flex gap-2 items-center">
-                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">{weather.current.condition.text}</p>
-                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs flex items-center gap-1" title="Last updated"><FiClock />{weather.current.last_updated.split(" ")[1]}</p>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">UV: {weather.current.uv}</p>
-                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs shadow-sm">Humidity: {weather.current.humidity}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">UV-index: {weather.current.uv}</p>
+                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs shadow-sm">Humidity: {weather.current.humidity} %</p>
                 </div>
               </div>
             </div>
