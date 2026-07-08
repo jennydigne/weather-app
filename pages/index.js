@@ -102,8 +102,8 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 <p>{weather.current.condition.text}</p>
                 <div className="flex gap-2 items-center">
-                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs">UV-index: {weather.current.uv}</p>
-                  <p className="bg-blue-100 px-2 py-1 rounded-md text-xs shadow-sm">Humidity: {weather.current.humidity} %</p>
+                  <p className="bg-blue-100 p-2 rounded-md text-xs shadow-sm">UV-index: {weather.current.uv}</p>
+                  <p className="bg-blue-100 p-2 rounded-md text-xs shadow-sm">Humidity: {weather.current.humidity} %</p>
                 </div>
               </div>
             </div>
